@@ -1,0 +1,71 @@
+<!-- <mat-checkbox>Check me!</mat-checkbox>
+<ul>
+    <li *ngFor = "let group of groups">
+        <p *ngFor = "let user of group.user">
+            <span>{{user.name}}</span>
+        </p>
+    </li>
+</ul> -->
+<!-- <div>
+    <mat-checkbox *ngFor = "let user of users" [value]="user.id" (change) = "onChange($event)">{{user.name}}</mat-checkbox>
+</div>
+
+<ul>
+    <li *ngFor = "let user of selectedUsers">
+        <span>{{user.name}}</span>
+    </li>
+</ul> -->
+<mat-card>
+  <mat-calendar style="width:300px" [selected]="selectedDate" (selectedChange)="onSelect($event)"></mat-calendar>
+</mat-card>
+<mat-selection-list [(ngModel)] = "selectedUsers" (ngModelChange) = "handleSelection()">
+    <mat-list-option *ngFor = "let user of users" [value]="user">
+      {{user.name}}
+    </mat-list-option>
+  </mat-selection-list>
+  <table>
+      <tr>
+          <td>UserId</td>
+          <td>Username</td>
+          <td>InferredActivities</td>
+          <td>InputActivities</td>
+      </tr>
+    <tr *ngFor="let range of dataRange">
+      <td>{{range.userId}}</td>
+      <td>{{range.userName}}</td>
+      <td>{{displayInferredActivities(range.inferredActivities)}}</td>
+      <td>{{displayInferredActivities(range.inputActivities)}}</td>
+    </tr>
+  </table>
+
+  <p>Bảng material</p>
+  <table mat-table [dataSource]="dataRange" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+          <!-- displayedColumns: string[] = ['UserId', 'Username', 'InferredActivities', 'InputActivities']; -->
+    <!-- Position Column -->
+    <ng-container matColumnDef="UserId">
+      <th mat-header-cell *matHeaderCellDef> UserId. </th>
+      <td mat-cell *matCellDef="let element"> {{element.userId}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="Username">
+      <th mat-header-cell *matHeaderCellDef> Username </th>
+      <td mat-cell *matCellDef="let element"> {{element.userName}} </td>
+    </ng-container>
+    <ng-container matColumnDef="InferredActivities">
+      <th mat-header-cell *matHeaderCellDef> InferredActivities </th>
+      <td mat-cell *matCellDef="let element">{{displayInferredActivities(element.inferredActivities)}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="InputActivities">
+      <th mat-header-cell *matHeaderCellDef> InputActivities </th>
+      <td mat-cell *matCellDef="let element">{{displayInferredActivities(element.inputActivities)}}</td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+

@@ -1,0 +1,52 @@
+{
+    "data": {
+        "groups": [
+            {
+                "id": "1",
+                "name": "admin",
+                "user": [
+                    {
+                        "id": "1",
+                        "name": "admin"
+                    },
+                    {
+                        "id": "2",
+                        "name": "admin"
+                    },
+                    {
+                        "id": "3",
+                        "name": "admin"
+                    }
+                ]
+            },
+            {
+                "id": "2",
+                "name": "admin",
+                "user": [
+                    {
+                        "id": "1",
+                        "name": "admin"
+                    },
+                    {
+                        "id": "2",
+                        "name": "admin"
+                    },
+                    {
+                        "id": "3",
+                        "name": "admin"
+                    }
+                ]
+            },
+            {
+                "id": "3",
+                "name": "admin",
+                "user": [
+                    {
+                        "id": "1",
+                        "name": "admin"
+                    }
+                ]
+            }
+        ]
+    }
+}
